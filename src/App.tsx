@@ -12,12 +12,16 @@ import RootLayout from './layouts/RootLayout.tsx'
 
 // Pages
 import Home from './features/home/Home.tsx'
+import UsersList from './features/users/UsersList.tsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path='/' element={<RootLayout />}>
         <Route index element={<Home />} />
+        <Route path='users'>
+          <Route index element={<UsersList />} />
+        </Route>
       </Route>
       <Route path='*' element={<h1>Page not found.</h1>} />
     </>
