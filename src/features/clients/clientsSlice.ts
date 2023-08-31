@@ -11,9 +11,6 @@ export interface Client {
   city: string
   state: string
   zip: string
-  joinDate: string
-  status: string
-  nextPayday: string
 }
 
 interface ClientsState {
@@ -32,9 +29,6 @@ const initialState: ClientsState = {
       city: 'Anytown',
       state: 'FL',
       zip: '12345',
-      joinDate: '2021-01-01',
-      status: 'Active',
-      nextPayday: '2021-01-01',
     },
     {
       id: 2,
@@ -46,9 +40,6 @@ const initialState: ClientsState = {
       city: 'Anytown',
       state: 'FL',
       zip: '12345',
-      joinDate: '2021-01-01',
-      status: 'Active',
-      nextPayday: '2021-01-01',
     },
   ],
 }
@@ -56,11 +47,24 @@ const initialState: ClientsState = {
 const clientsSlice = createSlice({
   name: 'clients',
   initialState,
-  reducers: {},
+  reducers: {
+    createClient(state, action) {
+      state.clients.push(action.payload)
+    },
+  },
 })
+
+export const { createClient } = clientsSlice.actions
 
 export const selectAllClients = (state: RootState) => state.clients.clients
 export const selectClientById = (state: RootState, clientId: number) =>
   state.clients.clients.find((client) => client.id === clientId)
+export const selectMaxClientId = (state: RootState) => {
+  const maxId = state.clients.clients.reduce(
+    (maxId, client) => Math.max(client.id, maxId),
+    0
+  )
+  return maxId
+}
 
 export default clientsSlice.reducer

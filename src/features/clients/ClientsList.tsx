@@ -9,13 +9,14 @@ const ClientsList: React.FC = () => {
 
   const renderedClients = clients.map((client) => (
     <li key={client.id}>
-      {client.firstName} <Link to={`/clients/${client.id}`}> {`> more`}</Link>
+      {client.firstName} <Link to={`${client.id}`}> {`> more`}</Link>
     </li>
   ))
 
   return (
     <div>
       <h2>Clients</h2>
+      <Link to='add'>Add new client</Link>
       <ul>{renderedClients}</ul>
     </div>
   )

@@ -17,6 +17,7 @@ import ClientsList from './features/clients/ClientsList.tsx'
 import Client from './features/clients/Client.tsx'
 import ServicesList from './features/services/ServicesList.tsx'
 import AppointmentsList from './features/appointments/AppointmentsList.tsx'
+import AddClient from './features/clients/AddClient.tsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
 
         <Route path='clients'>
           <Route index element={<ClientsList />} />
+          <Route path='add' element={<AddClient />} />
           <Route path=':clientId' element={<Client />} />
         </Route>
 
