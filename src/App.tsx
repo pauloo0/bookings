@@ -13,6 +13,7 @@ import RootLayout from './layouts/RootLayout.tsx'
 // Pages
 import Home from './features/home/Home.tsx'
 import UsersList from './features/users/UsersList.tsx'
+import ClientsList from './features/clients/ClientsList.tsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,18 @@ const router = createBrowserRouter(
       <Route path='/' element={<RootLayout />}>
         <Route index element={<Home />} />
         <Route path='users'>
+          <Route index element={<UsersList />} />
+        </Route>
+
+        <Route path='clients'>
+          <Route index element={<ClientsList />} />
+        </Route>
+
+        <Route path='services'>
+          <Route index element={<UsersList />} />
+        </Route>
+
+        <Route path='appointments'>
           <Route index element={<UsersList />} />
         </Route>
       </Route>
