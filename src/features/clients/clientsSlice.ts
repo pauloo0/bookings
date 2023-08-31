@@ -60,5 +60,7 @@ const clientsSlice = createSlice({
 })
 
 export const selectAllClients = (state: RootState) => state.clients.clients
+export const selectClientById = (state: RootState, clientId: number) =>
+  state.clients.clients.find((client) => client.id === clientId)
 
 export default clientsSlice.reducer

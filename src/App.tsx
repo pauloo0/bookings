@@ -14,6 +14,7 @@ import RootLayout from './layouts/RootLayout.tsx'
 import Home from './features/home/Home.tsx'
 import UsersList from './features/users/UsersList.tsx'
 import ClientsList from './features/clients/ClientsList.tsx'
+import Client from './features/clients/Client.tsx'
 import ServicesList from './features/services/ServicesList.tsx'
 import AppointmentsList from './features/appointments/AppointmentsList.tsx'
 
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
 
         <Route path='clients'>
           <Route index element={<ClientsList />} />
+          <Route path=':clientId' element={<Client />} />
         </Route>
 
         <Route path='services'>
