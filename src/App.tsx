@@ -14,6 +14,8 @@ import RootLayout from './layouts/RootLayout.tsx'
 import Home from './features/home/Home.tsx'
 import UsersList from './features/users/UsersList.tsx'
 import ClientsList from './features/clients/ClientsList.tsx'
+import ServicesList from './features/services/ServicesList.tsx'
+import AppointmentsList from './features/appointments/AppointmentsList.tsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,11 +31,11 @@ const router = createBrowserRouter(
         </Route>
 
         <Route path='services'>
-          <Route index element={<UsersList />} />
+          <Route index element={<ServicesList />} />
         </Route>
 
         <Route path='appointments'>
-          <Route index element={<UsersList />} />
+          <Route index element={<AppointmentsList />} />
         </Route>
       </Route>
       <Route path='*' element={<h1>Page not found.</h1>} />
